@@ -17,7 +17,7 @@ import numpy as np
 
 def euler(f, fa, x):
     """
-    Implements the Euler's method
+    Implements the forward Euler's method
     """
     y = []
     dx = x[1] - x[0]
