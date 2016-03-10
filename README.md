@@ -1,8 +1,8 @@
 # PHYS227 CW 6
 
-**Author(s):** _\<your name(s)\>_
+**Author(s):** Michael Seaman, Taylor Patti, Austin Ayers, Chinmai Raman, Andrew Malfavon
 
-[![Build Status](https://travis-ci.org/chapman-phys227-2016s/cw-6-YOURTEAM.svg?branch=master)](https://travis-ci.org/chapman-phys227-2016s/cw-6-YOURTEAM)
+[![Build Status](https://travis-ci.org/chapman-phys227-2016s/cw-6-classwork-team.svg?branch=master)](https://travis-ci.org/chapman-phys227-2016s/cw-6-classwork-team)
 
 **Due date:** 2016/03/15
 
@@ -30,4 +30,4 @@ I pledge that all the work in this repository is my own with only the following 
 
 Signed,
 
-_\<your name(s)\>_
+Our Names
