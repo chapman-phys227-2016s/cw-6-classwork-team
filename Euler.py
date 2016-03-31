@@ -17,11 +17,11 @@ import numpy as np
 from sympy import Function, dsolve, Eq, Derivative, sin, cos, symbols
 from sympy.abc import x
 
-def c1func(x):
+def c1func(q):
     """
     function for problem C.1 to solve
     """
-    return 2 * x - 1
+    return (lambda x, u: 2 * u - 1)
 def euler(df, f0, x):
     """
     Implements the forward Euler's method
@@ -32,7 +32,7 @@ def euler(df, f0, x):
     for elem_x, i in enumerate(x):
         if(i == 0):
             continue
-        y[i] = (y[i-1] + dx * df(f, elem_x))
+        y[i+1] = (y[i] + dx * df(elem_x, y[i]))
     return y
 
 def symbolic_solve():
@@ -47,3 +47,7 @@ def run():
     y = euler(c1func, 2, x_mesh)
     print y
     symbolic_solve()
+def test_euler():
+    """
+    Euler test function to ensure proper behavior
+    """
