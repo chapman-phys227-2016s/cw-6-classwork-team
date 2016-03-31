@@ -26,14 +26,12 @@ def euler(df, f0, x):
     """
     Implements the forward Euler's method
     """
-    y = np.zeros(len(x))
+    f = np.zeros(len(x))
     dx = x[1] - x[0]
-    y[0] = f0
+    f[0] = f0
     for elem_x, i in enumerate(x):
-        if(i == 0):
-            continue
-        y[i+1] = (y[i] + dx * df(elem_x, y[i]))
-    return y
+        f[i+1] = (f[i] + dx * df(elem_x, f[i]))
+    return f
 
 def symbolic_solve():
     """
