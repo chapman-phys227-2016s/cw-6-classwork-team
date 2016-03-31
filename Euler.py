@@ -40,6 +40,10 @@ def symbolic_solve():
     Solves the problem symbolically using sympy
     """
     f = Function('f')
-    dsolve(2 * Derivative(f(x), x, x) - 1, f(x))
-
-symbolic_solve()
+    sol = dsolve(2 * Derivative(f(x), x, x) - 1, f(x))
+    print sol
+def run():
+    x_mesh = np.linspace(0, 6, 24)
+    y = euler(c1func, 2, x_mesh)
+    print y
+    symbolic_solve()
