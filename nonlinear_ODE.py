@@ -6,7 +6,8 @@ Course: PHYS227
 Assignment: C.1 / C.2
 Date: March 31, 2016
 Name: Andrew Malfavon
-Description: 
+Description: solves a nonlinear ODE using Euler's method
+and plots the approximation and the known exact solution.
 """
 
 import numpy as np
@@ -21,21 +22,23 @@ def solve(q, dt, f0):
     if q == 1:
         T = 6
     else:
-        T = 1 / (q - 1) - 0.1
+        T = (1 / float(q - 1)) - 0.1
     return p1.euler(uprime(q), f0, np.arange(0, T, dt))
 
-def graph(f, xmin, xmax, ymin, ymax, n = 100):
-    x_values = np.linspace(xmin, xmax, n)
-    t = x_values
+#graphs the approximation and the exact solution together
+def graph(q, dt, f0):
+    y_approx = solve(q, dt, f0)
     if q == 1:
-        y_exact = np.exp(t)
+        T = 6
+        t = np.arange(0, T, dt)
+        y_exact = np.exp(t)#known exact solution for this case
     else:
-        y_exact = (t * (1 - q) + 1)**(1 / (1 - q))
-    y_values = f(x_values)
-    plt.plot(t, y_exact)
-    plt.plot(t, y_values)
-    plt.title('u(t)')
+        T = (1 / float(q - 1)) - 0.1
+        t = np.arange(0, T, dt)
+        y_exact = (t * (1 - q) + 1)**(1 / (1 - q))#known exact solution
+    plt.plot(t, y_exact, label = 'Exact Solution')
+    plt.plot(t, y_approx, label = 'Approximation')
+    plt.title('Nonlinear ODE Approximation and Exact Solution')
     plt.xlabel('t')
     plt.ylabel('u')
-    plt.xlim(xmin, xmax)
-    plt.ylim(ymin, ymax)
+    plt.legend(bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0.)
