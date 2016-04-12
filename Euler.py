@@ -29,7 +29,9 @@ def euler(df, f0, x):
     f = np.zeros(len(x))
     dx = x[1] - x[0]
     f[0] = f0
-    for elem_x, i in enumerate(x):
+    for i, elem_x in enumerate(x):
+        if i == len(x) - 1:
+            break
         f[i+1] = (f[i] + dx * df(elem_x, f[i]))
     return f
 
